@@ -21,7 +21,7 @@ class SearchBar extends Component {
     e.preventDefault();
 
     this.props.fetchWeather(this.state.searchTerm);
-    this.setState({ searchTerm : '' })
+    this.setState({ searchTerm: '' })
   };
 
   render() {
@@ -29,6 +29,7 @@ class SearchBar extends Component {
       <div>
         <form onSubmit={this.handleFormSubmit} >
           <input
+            value={this.state.searchTerm}
             placeholder = "Search By City or Zip Code"
             onChange={this.handleSearch}
           />
@@ -42,7 +43,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchWeather}, dispatch);
+  return bindActionCreators({ fetchWeather }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
